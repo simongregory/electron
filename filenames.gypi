@@ -302,6 +302,8 @@
       'atom/renderer/atom_renderer_client.h',
       'atom/renderer/guest_view_container.cc',
       'atom/renderer/guest_view_container.h',
+      'atom/renderer/media/atom_key_systems.cc',
+      'atom/renderer/media/atom_key_systems.h',
       'atom/utility/atom_content_utility_client.cc',
       'atom/utility/atom_content_utility_client.h',
       'chromium_src/chrome/browser/browser_process.cc',

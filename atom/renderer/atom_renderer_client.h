@@ -61,6 +61,8 @@ class AtomRendererClient : public content::ContentRendererClient,
 
   void EnableWebRuntimeFeatures();
 
+  void AddKeySystems(std::vector<media::KeySystemInfo>* key_systems) override;
+
   scoped_ptr<NodeBindings> node_bindings_;
   scoped_ptr<AtomBindings> atom_bindings_;
 

@@ -223,4 +223,9 @@ void AtomRendererClient::EnableWebRuntimeFeatures() {
     blink::WebRuntimeFeatures::enableSharedWorker(b);
 }
 
+void AtomRendererClient::AddKeySystems(
+    std::vector<media::KeySystemInfo>* key_systems) {
+    AddAtomKeySystems(key_systems);
+}
+
 }  // namespace atom
