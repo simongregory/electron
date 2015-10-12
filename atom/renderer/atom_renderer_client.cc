@@ -15,6 +15,7 @@
 #include "atom/renderer/guest_view_container.h"
 #include "atom/renderer/node_array_buffer_bridge.h"
 #include "base/command_line.h"
+#include "chrome/renderer/media/chrome_key_systems.h"
 #include "chrome/renderer/pepper/pepper_helper.h"
 #include "chrome/renderer/printing/print_web_view_helper.h"
 #include "chrome/renderer/tts_dispatcher.h"
@@ -242,6 +243,12 @@ void AtomRendererClient::EnableWebRuntimeFeatures() {
     blink::WebRuntimeFeatures::enableOverlayFullscreenVideo(b);
   if (IsSwitchEnabled(command_line, switches::kSharedWorker, &b))
     blink::WebRuntimeFeatures::enableSharedWorker(b);
+}
+
+void AtomRendererClient::AddKeySystems(
+    std::vector<media::KeySystemInfo>* key_systems) {
+
+  AddChromeKeySystems(key_systems);
 }
 
 }  // namespace atom

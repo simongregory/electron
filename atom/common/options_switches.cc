@@ -120,6 +120,15 @@ const char kSSLVersionFallbackMin[] = "ssl-version-fallback-min";
 // The browser process app model ID
 const char kAppUserModelId[] = "app-user-model-id";
 
+// Enable Widevine CDM.
+const char kEnableWidevineCdm[] = "enable-widevine-cdm";
+
+// Path to Widevine CDM binaries.
+const char kWidevineCdmPath[] = "widevine-cdm-path";
+
+// Widevine CDM version.
+const char kWidevineCdmVersion[] = "widevine-cdm-version";
+
 }  // namespace switches
 
 }  // namespace atom

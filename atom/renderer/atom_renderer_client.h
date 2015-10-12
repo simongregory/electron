@@ -58,6 +58,7 @@ class AtomRendererClient : public content::ContentRendererClient,
   bool ShouldOverridePageVisibilityState(
       const content::RenderFrame* render_frame,
       blink::WebPageVisibilityState* override_state) override;
+  void AddKeySystems(std::vector<media::KeySystemInfo>* key_systems) override;
 
   void EnableWebRuntimeFeatures();
 

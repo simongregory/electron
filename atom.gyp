@@ -224,6 +224,8 @@
         # Defined in Chromium but not exposed in its gyp file.
         'V8_USE_EXTERNAL_STARTUP_DATA',
         'ENABLE_PLUGINS',
+        'ENABLE_PEPPER_CDMS',
+        'USE_PROPRIETARY_CODECS',
       ],
       'sources': [
         '<@(lib_sources)',
@@ -245,10 +247,17 @@
         'vendor/node/deps/cares/include',
         # The `third_party/WebKit/Source/platform/weborigin/SchemeRegistry.h` is using `platform/PlatformExport.h`.
         '<(libchromiumcontent_src_dir)/third_party/WebKit/Source',
+        '<(libchromiumcontent_src_dir)/components/cdm',
+        '<(libchromiumcontent_src_dir)/third_party/widevine',
       ],
       'direct_dependent_settings': {
         'include_dirs': [
           '.',
+        ],
+        'ldflags': [
+          '-Wl,--whole-archive',
+          '<@(libchromiumcontent_libraries)',
+          '-Wl,--no-whole-archive',
         ],
       },
       'export_dependent_settings': [
@@ -405,6 +414,7 @@
             '<(libchromiumcontent_dir)/icudtl.dat',
             '<(libchromiumcontent_dir)/natives_blob.bin',
             '<(libchromiumcontent_dir)/snapshot_blob.bin',
+            '<(libchromiumcontent_dir)/widevinecdmadapter.plugin',
           ],
           'xcode_settings': {
             'ATOM_BUNDLE_ID': 'com.<(company_abbr).<(project_name).framework',
@@ -464,6 +474,16 @@
                 '-change',
                 '@loader_path/libffmpeg.dylib',
                 '@rpath/libffmpeg.dylib',
+                '${BUILT_PRODUCTS_DIR}/<(product_name) Framework.framework/Versions/A/<(product_name) Framework',
+              ],
+            },
+            {
+              'postbuild_name': 'Fix path of libwidevinecdm',
+              'action': [
+                'install_name_tool',
+                '-change',
+                '@loader_path/libwidevinecdm.dylib',
+                '@rpath/libwidevinecdm.dylib',
                 '${BUILT_PRODUCTS_DIR}/<(product_name) Framework.framework/Versions/A/<(product_name) Framework',
               ],
             },

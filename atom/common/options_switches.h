@@ -63,6 +63,10 @@ extern const char kSSLVersionFallbackMin[];
 
 extern const char kAppUserModelId[];
 
+extern const char kEnableWidevineCdm[];
+extern const char kWidevineCdmPath[];
+extern const char kWidevineCdmVersion[];
+
 }  // namespace switches
 
 }  // namespace atom
