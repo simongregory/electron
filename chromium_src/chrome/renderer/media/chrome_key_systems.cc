@@ -137,11 +137,10 @@ static void AddPepperBasedWidevine(
 #else   // (Desktop)
       media::EmeRobustness::SW_SECURE_CRYPTO,       // Maximum audio robustness.
       media::EmeRobustness::SW_SECURE_DECODE,       // Maximum video robustness.
-      media::EmeSessionTypeSupport::NOT_SUPPORTED,  // persistent-license.
-      media::EmeSessionTypeSupport::
-          NOT_SUPPORTED,                        // persistent-release-message.
+      media::EmeSessionTypeSupport::SUPPORTED_WITH_IDENTIFIER,      // persistent-license.
+      media::EmeSessionTypeSupport::NOT_SUPPORTED,      // persistent-release-message.
       media::EmeFeatureSupport::REQUESTABLE,    // Persistent state.
-      media::EmeFeatureSupport::NOT_SUPPORTED,  // Distinctive identifier.
+      media::EmeFeatureSupport::REQUESTABLE,  // Distinctive identifier.
 #endif  // defined(OS_CHROMEOS)
       concrete_key_systems);
 }
